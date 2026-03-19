@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopSphere - Modern E-Commerce Frontend</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header-bar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div class="brand-text">
+          <h2>ShopSphere</h2>
+          <span>Modern Shopping Experience</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn wishlist-btn" id="openWishlistInfoBtn" title="Saved items">
+          ❤ <span class="badge" id="wishlistCount">0</span>
+        </button>
+
+        <button class="cart-btn" id="openCartBtn" aria-label="Open cart">
+          <span>🛒 Cart</span>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card hero-main">
+        <div class="hero-eyebrow">Premium UI · Saved items · Filters · Smooth Cart</div>
+        <h1>Shop smarter with a sleek modern storefront.</h1>
+        <p>
+          Browse premium essentials, filter by category, sort products, preview details,
+          save favorites, and manage your cart with persistent local storage.
+        </p>
+
+        <div class="hero-actions">
+          <button class="cta" id="shopNowBtn">Shop Now</button>
+          <button class="ghost-chip" id="browseAllBtn">Browse All</button>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="hero-card mini-stat">
+          <h3>Total Products</h3>
+          <strong id="totalProductsStat">0</strong>
+          <span>Curated across multiple categories.</span>
+        </div>
+
+        <div class="hero-card mini-stat">
+          <h3>Cart Items</h3>
+          <strong id="cartItemsStat">0</strong>
+          <span>Saved automatically with localStorage.</span>
+        </div>
+
+        <div class="hero-card mini-stat">
+          <h3>Saved Items</h3>
+          <strong id="wishlistItemsStat">0</strong>
+          <span>Your favorites stay saved too.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <section class="toolbar">
+      <div class="toolbar-left">
+        <label class="search-wrap" aria-label="Search products">
+          <span>🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by product, category, description..."
+          />
+        </label>
+      </div>
+
+      <div class="toolbar-right">
+        <select id="sortSelect" class="sort-select" aria-label="Sort products">
+          <option value="default">Sort: Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="name-az">Name: A to Z</option>
+          <option value="rating-high">Top Rated</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="filters-section">
+      <div class="filter-row" id="categoryFilters"></div>
+    </section>
+
+    <section class="section-head">
+      <div>
+        <h2>Trending Products</h2>
+        <p id="resultsInfo">Loading products...</p>
+      </div>
+
+      <div class="section-actions">
+        <button class="ghost-chip small-chip" id="toggleWishlistViewBtn">Show Saved Only</button>
+      </div>
+    </section>
+
+    <section class="product-grid" id="productGrid"></section>
+  </main>
+
+  <footer>
+    <div class="container">
+      ShopSphere · Frontend Only · HTML + CSS + JavaScript
+    </div>
+  </footer>
+
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close-btn" id="closeModalBtn" aria-label="Close modal">✕</button>
+      <div class="modal-grid" id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Shopping cart sidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="clear-btn" id="clearCartBtn">Clear</button>
+    </div>
+
+    <div class="shipping-progress-box">
+      <div class="shipping-top">
+        <span>Free Shipping Progress</span>
+        <span id="shippingProgressLabel">$0 / $300</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="shippingProgressFill"></div>
+      </div>
+      <p id="shippingMessage">Add more items to unlock free shipping.</p>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="summary-box">
+      <div class="summary-row">
+        <span>Items</span>
+        <span id="summaryItems">0</span>
+      </div>
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="summarySubtotal">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Discount</span>
+        <span id="summaryDiscount">-$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span>Estimated Tax</span>
+        <span id="summaryTax">$0.00</span>
+      </div>
+      <div class="summary-total">
+        <span>Total</span>
+        <span id="summaryTotal">$0.00</span>
+      </div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
